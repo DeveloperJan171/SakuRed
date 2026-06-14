@@ -1,5 +1,41 @@
 const PASSWORD = "0617";
 
+/* ===================================
+ERROR MODAL
+=================================== */
+
+function showModal(message, gif){
+
+    document.getElementById("errorText").textContent =
+        message;
+
+    document.getElementById("errorGif").src =
+        gif;
+
+    document.getElementById("errorModal").style.display =
+        "flex";
+
+}
+
+const closeErrorBtn =
+document.getElementById("closeError");
+
+if(closeErrorBtn){
+
+    closeErrorBtn.addEventListener("click", () => {
+
+        document
+        .getElementById("errorModal")
+        .style.display = "none";
+
+    });
+
+}
+
+/* ===================================
+PASSWORD GATE
+=================================== */
+
 const unlockBtn =
 document.getElementById("unlock-btn");
 
@@ -8,7 +44,36 @@ unlockBtn.addEventListener("click", () => {
     const input =
         document
         .getElementById("password-input")
-        .value;
+        .value
+        .trim();
+
+    /* Empty Input */
+
+    if(input.length === 0){
+
+        showModal(
+            "You forgot to enter something ❤️",
+            "assets/images/confused-cat.gif"
+        );
+
+        return;
+
+    }
+
+    /* Numbers Only */
+
+    if(!/^\d+$/.test(input)){
+
+        showModal(
+            "Numbers only, Bb. ❤️",
+            "assets/images/confused-cat.gif"
+        );
+
+        return;
+
+    }
+
+    /* Correct Password */
 
     if(input === PASSWORD){
 
@@ -16,16 +81,48 @@ unlockBtn.addEventListener("click", () => {
             .getElementById("password-screen")
             .style.display = "none";
 
-        document
-            .getElementById("main-content")
-            .style.display = "block";
+        const mainContent =
+            document.getElementById("main-content");
+
+        mainContent.style.display = "block";
+
+        setTimeout(() => {
+
+            mainContent.classList.add("show");
+
+        }, 50);
 
         window.scrollTo(0,0);
 
-    } else {
-
-        alert("Wrong date ❤️");
     }
+
+    /* Wrong Password */
+
+    else{
+
+        showModal(
+            "Nope. Try again. 😼❤️",
+            "assets/images/no-cat.gif"
+        );
+
+    }
+
+});
+
+/* ===================================
+PRESS ENTER TO UNLOCK
+=================================== */
+
+document
+.getElementById("password-input")
+.addEventListener("keydown", (e) => {
+
+    if(e.key === "Enter"){
+
+        unlockBtn.click();
+
+    }
+
 });
 
 /* ===================================
