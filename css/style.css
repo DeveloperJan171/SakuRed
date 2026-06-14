@@ -44,16 +44,74 @@ PASSWORD
 }
 
 .password-box{
-    width:350px;
+    width:min(420px, 90%);
+
     background:white;
-    padding:40px;
-    border-radius:20px;
+
+    padding:50px 40px;
+
+    border-radius:28px;
+
     text-align:center;
-    box-shadow:var(--card-shadow);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.08);
+
+    position:relative;
 }
 
-.password-box h1{
-    margin-bottom:15px;
+.password-box h2{
+    font-family:var(--font-script);
+    font-size:2em;
+    font-weight:400;
+
+    margin-bottom:10px;
+
+    color:#2d2d2d;
+}
+
+.gate-subtitle{
+    color:#888;
+    margin-bottom:10px;
+}
+
+.gate-message{
+    color:#666;
+    line-height:1.7;
+
+    margin-bottom:50px;
+}
+
+.gate-message{
+    color:#666;
+    line-height:1.7;
+
+    margin-bottom:25px;
+}
+
+.password-box input{
+    width:100%;
+
+    padding:14px;
+
+    border:2px solid #f4d7dd;
+    border-radius:14px;
+
+    text-align:center;
+
+    font-size:1rem;
+    letter-spacing:4px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.password-box input:focus{
+    border-color:var(--primary-color);
+
+    box-shadow:
+        0 0 0 4px rgba(247,108,131,.15);
 }
 
 .hint{
@@ -87,6 +145,66 @@ PASSWORD
 
 #main-content{
     display:none;
+    opacity:0;
+}
+
+#main-content.show{
+    opacity:1;
+    transition:opacity .8s ease;
+}
+
+.error-modal{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:none;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.error-box{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    width:320px;
+
+    animation:pop .3s ease;
+}
+
+.error-box img{
+    width:180px;
+    margin-bottom:15px;
+}
+
+.error-box p{
+    font-size:1.1rem;
+    margin-bottom:15px;
+}
+
+.error-box button{
+    border:none;
+    padding:10px 20px;
+    border-radius:999px;
+    background:#ff6b81;
+    color:white;
+    cursor:pointer;
+}
+
+@keyframes pop{
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
 }
 
 /* ===================================
