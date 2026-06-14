@@ -18,21 +18,21 @@
 
         <div class="password-box">
 
-            <h1>Enter Our Special Date ❤️</h1>
+            <h2>💌 Before We Begin...</h2>
 
-            <p class="hint">
-                Hint: MMDD
+            <p class="gate-message">
+                The day that changed everything.
             </p>
 
             <input
-                type="password"
                 id="password-input"
+                type="password"
+                placeholder="MMDD"
                 maxlength="4"
-                placeholder="????"
             >
 
             <button id="unlock-btn">
-                Unlock
+                Unlock Our Story ❤️
             </button>
 
         </div>
@@ -456,8 +456,8 @@
                         <div class="memory-back">
                             <h3>Just The 2 Of Us ✨</h3>
                             <p>
-                                A collection of moments that remind me
-                                how lucky I am to have you.
+                                A reminder that no matter where life takes us,
+                                my favorite place will always be beside you.
                             </p>
                         </div>
 
@@ -682,6 +682,7 @@
                     <button id="closeCamera">
                         ✖ Close
                     </button>
+                    
 
                 </div>
 
@@ -726,6 +727,28 @@
     <script src="js/hearts.js"></script>
     <script src="js/counter.js"></script>
     <script src="js/camera.js"></script>
+    <div id="errorModal" class="error-modal">
+
+    <div class="error-box">
+
+            <img
+                id="errorGif"
+                src=""
+                alt=""
+            >
+
+            <p id="errorText"></p>
+
+            <button
+                id="closeError"
+                onclick="document.getElementById('errorModal').style.display='none'"
+            >
+                Okay ❤️
+            </button>
+
+        </div>
+
+    </div>
 
 </body>
 </html>
